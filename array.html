@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array对象练习</title>
+</head>
+<body>
+    <script>
+        var arr=new Array(3,7,1,6,9);
+        //1.向数组的末尾追加元素
+        console.log(arr.push(5));
+
+        //2.向数组的开头添加元素
+        console.log(arr.unshift(5));
+
+        //3.删除末尾的元素
+        console.log(arr.pop());
+
+        //4.开头删除一个元素
+        console.log(arr.shift());
+
+        //5.任意位置添加删除
+        console.log(arr.splice(3,1,8));
+
+        //6.使用分隔符将数组数据隔开变为字符串
+        console.log(arr.join(','));
+
+        //7.数组的截取
+        console.log(arr.slice(0,2));
+
+        //8.多个数组的连接
+        var arr1=[12,56];
+        console.log(arr.concat(arr1));
+
+        //9.查找某个值在数组中第一次出现的下标
+        console.log(arr.indexOf(7));
+
+        //10.倒叙查找某个值在数组中第一次出现的位置
+        console.log(arr.lastIndexOf(7));
+
+        //11.数组的排序
+        console.log(arr.sort());
+
+        //12.遍历数组
+        arr.forEach((value,index)=>{console.log(index,value)})
+
+        //13.根据条件筛选数组元素
+        var newArr =arr.filter(function(value,index){
+            return value>5;       
+        })
+        console.log(newArr);
+
+        //14.映射 将数组中的所有数据按照条件改变，形成新数组
+        var end = arr.map((value,index)=>value*3);
+        console.log(end);
+
+        //15.判断 根据回调函数的判断条件来选择真假
+        var end1=arr.some(function(value,index){
+            return value<500;
+        });
+        console.log(end1);  
+
+        //16.判断 根据回调函数的判断条件来选择真假(与some比较记忆)
+        var end2=arr.every(function(value,index){
+            return value<5;
+        });
+        console.log(end2); 
+
+        //17. 数组倒序
+        console.log(arr.reverse());
+
+        //18.将两类对象转为真正的数组
+        var a={length:2,0:'aaa',1:'bbb'};  
+        console.log(Array.from(a));
+        var b={length:2};  
+        console.log(Array.from(b));
+
+        //19.检查数组是否包含某元素，包含返回true，否则返回false
+        console.log(arr.includes(1));
+        console.log(arr.includes(0));
+
+        //20.将一组值，转换为数组
+        console.log(Array.of(3,63,44));
+        
+        //21.将数组顺序打乱：例如不重复随机选取数组内容，可将数组打乱后按顺序取出
+        var arr2=[1,2,3,4,5,6,7,8,9];
+        arr2.sort(()=>Math.random()-0.5)
+        console.log(arr2);
+
+    </script>
+</body>
+</html>

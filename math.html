@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math对象练习</title>
+</head>
+<body>
+    <script>
+        var num1=2.65;
+        var num2=-20;
+        var num3=44;
+        var deg=70;
+        //1.返回绝对值
+        console.log(Math.abs(num2));
+
+        //2.返回四舍五入后的整数
+        console.log(Math.round(num1));
+
+        //3.返回近似值，向上取整
+        console.log(Math.ceil(num1));
+
+        //4.返回近似值，向下取整
+        console.log(Math.floor(num1));
+
+        //5.返回x,y中的最大值
+        console.log(Math.max(num1,num2));
+
+        //6.返回x,y中的最小值
+        console.log(Math.min(num2,num3));
+
+        //7.返回一个0-1之间的随机数
+        console.log(Math.random());
+
+        //8.返回整数部分
+        console.log(Math.trunc(num1));
+
+        //9.取x的y次幂
+        console.log(Math.pow(num2,2));
+
+        //10.返回x的平方根
+        console.log(Math.sqrt(num3));
+
+        //11.返回x的正弦值
+        console.log(Math.sin(deg));
+
+        //12.返回x的余弦值
+        console.log(Math.cos(deg));
+
+        //13.返回x的正切值
+        console.log(Math.tan(deg));
+
+        //14.返回x的反正弦值
+        console.log(Math.asin(1));
+
+        //15.返回x的反余弦值
+        console.log(Math.acos(1));
+
+        //16.返回x的反正切值
+        console.log(Math.atan(1));
+
+        //17.可把 Number 四舍五入为指定小数位数的数字
+        console.log(num1.toFixed(1));
+
+        //18.取x的y次方根
+        console.log(Math.pow(num3,1/2));
+        
+        //19.查找数组中最大和最小的数字
+        var arr=[34,43,55,12,4,17];
+        var max=Math.max(...arr);
+        var min=Math.min(...arr);
+        console.log(max,min);
+        
+        //20.取x-y的随机数、随机整数
+        console.log(Math.floor(Math.random() * (3 - 1 ) + 1));
+        console.log(Math.floor(Math.random() * (3 - 1 + 1) + 1  ));
+    </script>
+</body>
+</html>

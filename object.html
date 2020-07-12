@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object对象练习</title>
+</head>
+<body>
+    <script>
+        //1.对象的拼接
+        var obj1={name:'柴梦昕'};
+        var obj2={age:'20'};
+        var obj3={say:function(){
+            console.log('说话');
+        }}
+        console.log(Object.assign(obj1,obj2,obj3));
+        console.log(obj1,obj2);
+        //特殊用法：对象拷贝
+        var obj={name:'柴梦昕'}
+        var obj4=Object.assign({},obj);
+        console.log(obj4);
+        
+        //2.判断两个值是否相同，与===类似但不完全一样
+        console.log(Object.is(obj1,obj4));//false
+        console.log(Object.is(obj4,obj4));//true
+
+        //3.确定一个对象是否存在于另一个对象的原型链中
+        function a(){
+        }
+        var b= new a();
+        console.log(a.prototype.isPrototypeOf(b));//true
+
+        //4.直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
+        var obj5= new Object();
+        Object.defineProperty(obj5,'name',{
+            configurable: false,
+            writable: true,
+            enumerable: true,           
+            value: '柴梦昕'
+        })
+        console.log(obj5.name);
+
+        //5.直接在一个对象上定义一个或多个新的属性或修改现有属性，并返回该对象。
+        var obj6 = new Object();
+        Object.defineProperties(obj6,{
+            name: {
+                value: '柴梦昕',
+                configurable: false,
+                writable: true,
+                enumerable: true
+            },
+            age: {
+                value: 20,
+                configurable: true
+            }
+        })
+        console.log(obj6.name,obj6.age);
+
+        //6.阻止修改现有属性的特性和值，并阻止添加新属性。
+        var obj7={name:'张三',age:'18'};
+        obj7.name='柴梦昕';
+        console.log(obj7.name);
+        Object.freeze(obj7);
+        obj7.age=20;
+        console.log(obj7.age);
+
+        //7. for in 循环,循环遍历对象自身的和继承的可枚举属性(不含Symbol属性)
+        var obj8={
+            name:'小米',
+            age:18,
+            say:function(){
+                console.log('你好');
+            }        
+        }
+        for (var i in obj8) {
+            console.log(obj8[i]);
+        }
+
+        //8.返回一个数组，包括对象自身的（不含继承的）所有可枚举属性（不含 Symbol 属性）的键名。
+        console.log(Object.keys(obj8));
+
+        //9.返回一个数组,包含对象自身的所有属性
+        console.log(Object.getOwnPropertyNames(obj8));
+        
+        //10.返回一个数组，包含对象自身的所有Symbol属性。
+        console.log(Object.getOwnPropertySymbols(obj8));
+
+        //11.返回一个数组,包含对象自身的所有属性,不管属性名是Symbol或字符串,也不管是否可枚举.
+        console.log(Reflect.ownKeys(obj8));
+
+        //12.方法返回一个给定对象自身的所有可枚举属性值的数组，值的顺序与使用for...in循环的顺序相同( 区别在于 for-in 循环枚举原型链中的属性 )。
+
+        console.log(Object.values(obj8));
+
+    </script>
+</body>
+</html>
